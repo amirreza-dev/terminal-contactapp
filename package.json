@@ -1,0 +1,23 @@
+{
+  "name": "terminal-contactapp",
+  "version": "1.0.0",
+  "description": "This is my first Node.js project which is a terminal app for contact managment",
+  "homepage": "https://github.com/amirreza-dev/terminal-contactapp#readme",
+  "bugs": {
+    "url": "https://github.com/amirreza-dev/terminal-contactapp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirreza-dev/terminal-contactapp.git"
+  },
+  "license": "ISC",
+  "author": "Amirreza Kadkhodazadeh",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0"
+  }
+}
