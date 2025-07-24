@@ -3,10 +3,15 @@ const chalk = require('chalk');
 
 const { addContacts, listContacts, removeContacts } = require('./contact');
 
+yargs.scriptName(`${chalk.default.yellow('Terminal Contact Manager')}`);
+yargs.usage(
+ `$0 ${chalk.default.red('<command>')} ${chalk.default.green('[args]')}`
+);
+
 yargs.command({
  command: 'create',
  aliases: ['c'],
- describe: `${chalk.default.green('Creating new users')}`,
+ describe: `${chalk.default.green('Creating New Contacts')}`,
  builder: {
   fullname: {
    alias: 'f',
@@ -35,7 +40,7 @@ yargs.command({
 yargs.command({
  command: 'list',
  aliases: ['l'],
- describe: `${chalk.default.green('Your Contact lists')}`,
+ describe: `${chalk.default.green('Your Contact Lists')}`,
  handler() {
   listContacts();
  },
@@ -44,7 +49,7 @@ yargs.command({
 yargs.command({
  command: 'remove',
  aliases: ['r'],
- describe: `${chalk.default.green('Remove contact')}`,
+ describe: `${chalk.default.green('Remove Contact')}`,
  builder: {
   fullname: {
    alias: 'f',
