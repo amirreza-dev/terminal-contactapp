@@ -24,11 +24,25 @@ const listContacts = () => {
   console.log(`${chalk.default.yellow('Your Contacts:\n')}`);
 
   contacts.forEach((contact) => {
-   console.log(`\t${chalk.default.blue('Fullname:')}${contact.fullname}`);
-   console.log(`\t${chalk.default.blue('Phone:')}${contact.phone}`);
-   console.log(`\t${chalk.default.blue('Email:')}${contact.email}`);
+   console.log(`\t${chalk.default.blue('Fullname:')} ${contact.fullname}`);
+   console.log(`\t${chalk.default.blue('Phone:')} ${contact.phone}`);
+   console.log(`\t${chalk.default.blue('Email:')} ${contact.email}`);
    console.log(chalk.default.redBright('\t---------------------------'));
   });
+ }
+};
+
+const removeContacts = (fullname) => {
+ const contacts = loadContacts();
+ const filterdContacts = contacts.filter(
+  (contact) => contact.fullname != fullname
+ );
+
+ if (contacts.length > filterdContacts.length) {
+  savedContacts(filterdContacts);
+  console.log(chalk.default.green(`${fullname} has been removed.`));
+ } else {
+  console.log(chalk.default.red('Contact not found!'));
  }
 };
 
@@ -50,4 +64,5 @@ const savedContacts = (contacts) => {
 module.exports = {
  addContacts,
  listContacts,
+ removeContacts,
 };

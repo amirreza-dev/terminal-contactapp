@@ -1,12 +1,12 @@
 const yargs = require('yargs');
 const chalk = require('chalk');
 
-const { addContacts, listContacts } = require('./contact');
+const { addContacts, listContacts, removeContacts } = require('./contact');
 
 yargs.command({
  command: 'create',
  aliases: ['c'],
- describe: 'Creating new users',
+ describe: `${chalk.default.green('Creating new users')}`,
  builder: {
   fullname: {
    alias: 'f',
@@ -35,9 +35,26 @@ yargs.command({
 yargs.command({
  command: 'list',
  aliases: ['l'],
- describe: `${chalk.default.white('Your Contact lists')}`,
+ describe: `${chalk.default.green('Your Contact lists')}`,
  handler() {
   listContacts();
+ },
+});
+
+yargs.command({
+ command: 'remove',
+ aliases: ['r'],
+ describe: `${chalk.default.green('Remove contact')}`,
+ builder: {
+  fullname: {
+   alias: 'f',
+   describe: 'User Full Name',
+   demandOption: true,
+   type: 'string',
+  },
+ },
+ handler({ fullname }) {
+  removeContacts(fullname);
  },
 });
 
