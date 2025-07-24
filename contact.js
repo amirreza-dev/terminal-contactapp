@@ -17,6 +17,21 @@ const addContacts = (fullname, phone, email) => {
  }
 };
 
+const listContacts = () => {
+ const contacts = loadContacts();
+
+ if (contacts.length > 0) {
+  console.log(`${chalk.default.yellow('Your Contacts:\n')}`);
+
+  contacts.forEach((contact) => {
+   console.log(`\t${chalk.default.blue('Fullname:')}${contact.fullname}`);
+   console.log(`\t${chalk.default.blue('Phone:')}${contact.phone}`);
+   console.log(`\t${chalk.default.blue('Email:')}${contact.email}`);
+   console.log(chalk.default.redBright('\t---------------------------'));
+  });
+ }
+};
+
 const loadContacts = () => {
  try {
   const dataBuffer = fs.readFileSync('contact.json');
@@ -34,4 +49,5 @@ const savedContacts = (contacts) => {
 
 module.exports = {
  addContacts,
+ listContacts,
 };

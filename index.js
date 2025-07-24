@@ -1,6 +1,7 @@
 const yargs = require('yargs');
+const chalk = require('chalk');
 
-const { addContacts } = require('./contact');
+const { addContacts, listContacts } = require('./contact');
 
 yargs.command({
  command: 'create',
@@ -28,6 +29,15 @@ yargs.command({
  },
  handler({ fullname, phone, email }) {
   addContacts(fullname, phone, email);
+ },
+});
+
+yargs.command({
+ command: 'list',
+ aliases: ['l'],
+ describe: `${chalk.default.white('Your Contact lists')}`,
+ handler() {
+  listContacts();
  },
 });
 
