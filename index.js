@@ -1,0 +1,9 @@
+const fs = require('fs');
+
+const users = [
+ { id: 1, fullname: 'Amirreza Kadkhodazadeh' },
+ { id: 2, fullname: 'Sam Khosravian' },
+ { id: 3, fullname: 'Khashayar Mahdavi' },
+];
+
+fs.writeFileSync('contact.json', JSON.stringify(users));
